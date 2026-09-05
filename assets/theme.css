@@ -1,0 +1,39 @@
+.pill,.button.dark{background:#F16913;color:#18202a}
+.theme-switch{width:46px;height:46px;flex-shrink:0;border:1px solid var(--line);border-radius:15px;background:var(--bg);color:var(--ink);box-shadow:var(--sm);font-size:24px;cursor:pointer;margin-left:12px}
+.theme-switch:active,.socials a:active{box-shadow:var(--in)}
+a:focus-visible,button:focus-visible{outline:3px solid #F16913;outline-offset:5px}
+.socials{justify-content:flex-start;gap:18px}
+.socials a{display:grid;place-items:center;width:50px;height:50px;border-radius:16px;box-shadow:var(--sm);color:var(--ink)}
+.socials svg{width:23px;height:23px}
+.portrait-panel{height:auto;min-height:0;aspect-ratio:3/4;padding:0;box-shadow:var(--shadow)}
+.portrait-panel img{position:static;display:block;width:100%;height:auto;transform:none;object-fit:contain}
+.portrait-panel:after{display:none}
+html[data-theme="dark"]{color-scheme:dark;--bg:#20242a;--ink:#f1f3f5;--muted:#b0b8c2;--line:#3b424c;--shadow:12px 12px 28px #13161a,-12px -12px 28px #2d323a;--sm:6px 6px 14px #13161a,-6px -6px 14px #2d323a;--in:inset 4px 4px 9px #13161a,inset -4px -4px 9px #2d323a}
+[data-theme="dark"] .nav-shell,[data-theme="dark"] .mobile{background:#20242af2;border-color:var(--line);box-shadow:var(--sm)}
+[data-theme="dark"] .card,[data-theme="dark"] .project,[data-theme="dark"] .contact{background:linear-gradient(145deg,#292e36,#1b1f24);border-color:var(--line);box-shadow:var(--shadow)}
+[data-theme="dark"] .row,[data-theme="dark"] .button,[data-theme="dark"] .portrait-panel{border-color:var(--line)}
+[data-theme="dark"] .nav-shell nav a,[data-theme="dark"] .socials{color:var(--muted)}
+[data-theme="dark"] .business{box-shadow:var(--shadow)}
+[data-theme="dark"] .label b{color:#b0b8c2}
+[data-theme="dark"] #menu{color:var(--ink)}
+@media(max-width:620px){.theme-switch{margin-left:auto}.portrait-panel{height:auto;min-height:0}.socials{justify-content:flex-start}.socials a{width:50px;height:50px}}
+.hero{min-height:100svh;padding-top:105px;padding-bottom:30px;gap:40px}
+.hero .portrait{width:min(100%,calc((100svh - 140px)*.75));justify-self:center}
+.hero h1{font-size:clamp(3rem,6.6vw,6.5rem)}
+.button{font-family:inherit;font-size:1rem;cursor:pointer;border:0}
+#resumeDialog{max-width:min(90vw,460px);padding:30px;border-radius:24px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#resumeDialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
+@media(min-width:621px) and (max-width:900px){.hero{grid-template-columns:1.1fr .9fr}.hero h1{font-size:clamp(2.8rem,6vw,4rem)}}
+@media(max-width:620px){
+ .hero{min-height:100svh;padding-top:80px;padding-bottom:90px;gap:10px;justify-content:center}
+ .hero h1{font-size:clamp(2rem,8.5vw,2.8rem);margin:0;line-height:1.02}
+ .hero .eyebrow{font-size:.75rem;letter-spacing:.04em}
+ .hero .portrait{width:auto;max-width:100%;height:clamp(110px,calc(100svh - 460px),340px);aspect-ratio:3/4;align-self:center}
+ .hero .portrait-panel{height:100%;width:100%;border-radius:20px}
+ .hero .portrait-panel img{height:100%;width:100%;object-fit:contain}
+ .hero-copy>p{font-size:1rem;line-height:1.35;margin:0}
+ .hero .actions{margin:0;gap:10px}
+ .hero .button{min-height:44px}
+ .hero .socials{gap:14px}
+ .hero .socials a{width:44px;height:44px;border-radius:13px}
+}
