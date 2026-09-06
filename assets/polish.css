@@ -110,3 +110,80 @@
 .resume-preview{overflow:auto;min-height:0;background:#fff}.resume-preview img{display:block;width:100%;height:auto}
 .resume-footer{padding:15px;text-align:center;flex-shrink:0}.resume-download{background:#F16913;color:#18202a}
 @media(max-width:620px){.hero h1{margin-top:16px}.hero .portrait{height:min(414px,calc(100svh - 282px),calc((100vw - 44px)*1.3333))}}
+
+
+/* HOME PORTRAIT — HEAD OUTSIDE THE FRAME */
+
+.hero .popout-portrait {
+  /* Frame starts 32% down from the image top */
+  --frame-top: 32%;
+  --frame-radius: 24px;
+
+  position: relative;
+  width: 100%;
+  aspect-ratio: 404 / 540;
+  overflow: visible;
+  isolation: isolate;
+
+  transition: transform 0.35s ease;
+}
+
+/* Show only the lower part of the original photo */
+.hero .popout-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  clip-path: inset(
+    var(--frame-top) 0 0 0
+    round var(--frame-radius)
+  );
+}
+
+.hero .popout-frame img,
+.hero .popout-head {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  margin: 0;
+}
+
+/* Show only the head from the transparent PNG */
+.hero .popout-head {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  clip-path: inset(
+    0 0 calc(100% - var(--frame-top)) 0
+  );
+}
+
+/* Both layers enlarge together */
+@media (hover: hover) and (pointer: fine) {
+  .hero .popout-portrait:hover {
+    transform: scale(1.025);
+  }
+}
+
+/* Keep the existing mobile photo size */
+@media (max-width: 620px) {
+  .hero .popout-portrait {
+    height: 100%;
+    aspect-ratio: auto;
+    --frame-radius: 20px;
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .hero .popout-portrait {
+    transition: none;
+  }
+
+  .hero .popout-portrait:hover {
+    transform: none;
+  }
+}
