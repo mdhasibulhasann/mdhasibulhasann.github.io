@@ -187,3 +187,31 @@
     transform: none;
   }
 }
+
+/* Remove the frame's decorative outline */
+.hero .popout-portrait,
+.hero .popout-frame {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.hero .popout-portrait::before,
+.hero .popout-portrait::after,
+.hero .popout-frame::before,
+.hero .popout-frame::after {
+  content: none;
+}
+
+/* Move the entire portrait upward */
+.hero .portrait {
+  position: relative;
+  top: -24px;
+}
+
+/* Smaller adjustment on mobile */
+@media (max-width: 620px) {
+  .hero .portrait {
+    top: -12px;
+  }
+}
