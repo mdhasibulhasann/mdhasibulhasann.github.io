@@ -337,3 +337,10 @@
     clip-path: inset(32.4138% 0 0 0 round 18px);
   }
 }
+
+/* Overlap the two layers to prevent a neck seam */
+.hero .single-popout > img {
+  clip-path: inset(
+    0 0 calc(67.5862% - 2px) 0
+  );
+}
