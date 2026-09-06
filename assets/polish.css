@@ -193,3 +193,14 @@
   .hero .single-popout { transition: none; }
   .hero .single-popout:hover { transform: none; }
 }
+
+
+/* PC ONLY — larger portrait, positioned higher */
+@media (min-width: 1024px) {
+  .hero .portrait {
+    width: min(100%, 430px);
+    max-width: 430px;
+    height: auto;
+    top: -40px;
+  }
+}
