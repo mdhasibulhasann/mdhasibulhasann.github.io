@@ -215,3 +215,42 @@
     top: -12px;
   }
 }
+
+
+/* Single transparent portrait — no layer seam */
+.hero .single-popout {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  transition: transform 0.35s ease;
+}
+
+.hero .single-popout img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0 0 24px 24px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero .single-popout:hover {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .single-popout {
+    transition: none;
+  }
+
+  .hero .single-popout:hover {
+    transform: none;
+  }
+}
