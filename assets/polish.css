@@ -195,12 +195,28 @@
 }
 
 
-/* PC ONLY — larger portrait, positioned higher */
+/* PC ONLY — portrait size and position */
 @media (min-width: 1024px) {
   .hero .portrait {
     width: min(100%, 430px);
     max-width: 430px;
     height: auto;
+    aspect-ratio: 1085 / 1450;
+    position: relative;
     top: -40px;
+    left: -18px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .hero .single-popout {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero .single-popout > img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }
