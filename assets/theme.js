@@ -1,1 +1,55 @@
-(()=>{let saved;try{saved=localStorage.getItem('portfolio-theme')}catch{}const media=matchMedia('(prefers-color-scheme: dark)');function apply(theme){document.documentElement.dataset.theme=theme;const button=document.getElementById('themeSwitch');if(button){button.setAttribute('aria-pressed',String(theme==='dark'));button.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');button.textContent=theme==='dark'?'☀':'◐'}document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#20242a':'#e9edf2')}apply(saved==='dark'||saved==='light'?saved:media.matches?'dark':'light');document.addEventListener('DOMContentLoaded',()=>{apply(document.documentElement.dataset.theme);document.getElementById('themeSwitch').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';saved=theme;apply(theme);try{localStorage.setItem('portfolio-theme',theme)}catch{}})});media.addEventListener('change',()=>{if(!saved)apply(media.matches?'dark':'light')})})();
+(() => {
+  const root = document.documentElement;
+
+  // Website প্রতিবার white theme দিয়ে শুরু হবে
+  root.removeAttribute("data-theme");
+
+  const setupThemeSwitch = () => {
+    const button = document.getElementById("themeSwitch");
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+    if (!button) return;
+
+    const applyTheme = (isDark) => {
+      if (isDark) {
+        root.setAttribute("data-theme", "dark");
+      } else {
+        root.removeAttribute("data-theme");
+      }
+
+      button.setAttribute("aria-pressed", String(isDark));
+
+      button.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme"
+      );
+
+      if (themeMeta) {
+        themeMeta.setAttribute(
+          "content",
+          isDark ? "#1b1f24" : "#e9edf2"
+        );
+      }
+    };
+
+    // Default theme: white
+    applyTheme(false);
+
+    button.addEventListener("click", () => {
+      const isCurrentlyDark =
+        root.getAttribute("data-theme") === "dark";
+
+      applyTheme(!isCurrentlyDark);
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      setupThemeSwitch,
+      { once: true }
+    );
+  } else {
+    setupThemeSwitch();
+  }
+})();
