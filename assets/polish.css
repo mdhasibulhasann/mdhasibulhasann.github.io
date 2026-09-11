@@ -220,3 +220,13 @@
     display: block;
   }
 }
+
+
+/* Keep the website's selected theme */
+:root:not([data-theme="dark"]) {
+  color-scheme: only light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: only dark;
+}
