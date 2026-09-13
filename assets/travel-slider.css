@@ -151,44 +151,87 @@ body:not(.travel-gallery-page) #travel .heading h2 {
 
 
 
-/* Keep the entire image inside its frame */
+/* Matching rounded frames for slider and gallery */
 #travel .journey-slide,
 .travel-gallery-page .photo-slot {
   position: relative;
+  aspect-ratio: 4 / 5;
+  height: auto;
   min-width: 0;
   min-height: 0;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  border-radius: 18px;
   background: var(--bg);
 }
 
+/* Images fill their frames */
 #travel .journey-slide img,
 .travel-gallery-page .photo-slot img {
-  position: absolute !important;
-  inset: 0 !important;
-
+  position: absolute;
+  inset: 0;
   display: block;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-
-  padding: 8px !important;
-  margin: 0 !important;
-  box-sizing: border-box;
-  object-fit: contain !important;
-  object-position: center !important;
-
-  transform: none !important;
-  scale: none !important;
-  clip-path: none !important;
-  mask: none !important;
-  -webkit-mask: none !important;
-  border-radius: 0 !important;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  scale: none;
+  clip-path: none;
+  mask: none;
+  -webkit-mask: none;
+  border-radius: inherit;
 }
 
 #travel .journey-slide img[hidden],
 .travel-gallery-page .photo-slot img[hidden] {
-  display: none !important;
+  display: none;
+}
+
+/* Keep homepage photo compact and proportional */
+#travel .journey-media {
+  width: min(
+    100%,
+    380px,
+    max(160px, calc((100svh - 330px) * 0.8))
+  );
+  min-width: 0;
+  justify-self: center;
+  align-self: center;
+}
+
+#travel .journey-viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+#travel .journey-slide {
+  flex: 0 0 100%;
+}
+
+#travel .journey-shell {
+  align-items: center;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  #travel .journey-media {
+    width: min(
+      100%,
+      240px,
+      max(128px, calc((100svh - 420px) * 0.8))
+    );
+  }
+
+  #travel .journey-shell {
+    gap: 14px;
+  }
 }
