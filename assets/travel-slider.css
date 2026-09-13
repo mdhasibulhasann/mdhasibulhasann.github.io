@@ -148,6 +148,8 @@ body:not(.travel-gallery-page) #travel .heading h2 {
     font-size: 0.875rem;
   }
 }
+
+
 /* Show full travel photos without cropping */
 #travel .journey-slide img,
 .travel-gallery-page .photo-slot img {
