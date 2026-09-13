@@ -46,3 +46,105 @@
 .travel-gallery-page .travel-card p { color:var(--muted); margin:16px 0 0; }
 @media(max-width:700px) { .travel-gallery-page .travel { grid-template-columns:1fr; gap:18px; } .travel-gallery-page .travel-card { padding:18px; } }
 @media(prefers-reduced-motion:reduce) { .journey-track,.journey-all { transition:none; } }
+
+
+/* Homepage travel: compact layout with room for navigation */
+body:not(.travel-gallery-page) #travel {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+body:not(.travel-gallery-page) #travel .heading {
+  margin-bottom: 20px;
+}
+
+body:not(.travel-gallery-page) #travel .heading h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+#travel .journey-shell {
+  padding: clamp(20px, 2.5vw, 40px);
+  gap: clamp(24px, 3vw, 48px);
+  align-items: stretch;
+}
+
+#travel .journey-copy {
+  justify-content: center;
+}
+
+#travel .journey-caption {
+  min-height: 0;
+}
+
+#travel .journey-caption h3 {
+  font-size: clamp(2rem, 3.5vw, 3.8rem);
+  margin-bottom: 12px;
+}
+
+#travel .journey-caption p {
+  font-size: 1rem;
+}
+
+#travel .journey-all {
+  margin-top: 24px;
+}
+
+#travel .journey-slide {
+  /* Override the tall 4:5 photo frame */
+  aspect-ratio: auto;
+  height: clamp(180px, calc(100svh - 350px), 480px);
+}
+
+#travel .journey-controls {
+  margin-top: 10px;
+}
+
+/* Mobile: photo, text and button in one compact box */
+@media (max-width: 700px) {
+  body:not(.travel-gallery-page) #travel {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  body:not(.travel-gallery-page) #travel .heading {
+    margin-bottom: 14px;
+  }
+
+  body:not(.travel-gallery-page) #travel .heading h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  #travel .journey-shell {
+    padding: 14px;
+    gap: 14px;
+    border-radius: 20px;
+  }
+
+  #travel .journey-slide {
+    height: clamp(120px, calc(100svh - 440px), 290px);
+    aspect-ratio: auto;
+  }
+
+  #travel .journey-controls {
+    margin-top: 6px;
+    font-size: 0.75rem;
+  }
+
+  #travel .journey-caption h3 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  #travel .journey-caption p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  #travel .journey-all {
+    margin-top: 12px;
+    min-height: 44px;
+    padding: 8px 20px;
+    font-size: 0.875rem;
+  }
+}
