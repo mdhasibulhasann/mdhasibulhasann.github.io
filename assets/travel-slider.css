@@ -151,14 +151,44 @@ body:not(.travel-gallery-page) #travel .heading h2 {
 
 
 
-/* Show full travel photos without cropping */
-#travel .journey-slide img,
-.travel-gallery-page .photo-slot img {
-  object-fit: contain;
-  object-position: center;
-}
-
+/* Keep the entire image inside its frame */
 #travel .journey-slide,
 .travel-gallery-page .photo-slot {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
   background: var(--bg);
+}
+
+#travel .journey-slide img,
+.travel-gallery-page .photo-slot img {
+  position: absolute !important;
+  inset: 0 !important;
+
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  padding: 8px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  object-fit: contain !important;
+  object-position: center !important;
+
+  transform: none !important;
+  scale: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  border-radius: 0 !important;
+}
+
+#travel .journey-slide img[hidden],
+.travel-gallery-page .photo-slot img[hidden] {
+  display: none !important;
 }
