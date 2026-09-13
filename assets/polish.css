@@ -452,3 +452,12 @@
     padding: 0.6rem 1rem;
   }
 }
+
+
+/* Mobile bottom bar: remove outer glow */
+@media (max-width: 620px) {
+  #mobile {
+    box-shadow: none;
+    border: 1px solid var(--line);
+  }
+}
