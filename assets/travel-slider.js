@@ -18,7 +18,7 @@
   shell.setAttribute('role', 'region');
   shell.setAttribute('aria-label', 'Travel photographs');
   shell.setAttribute('aria-roledescription', 'carousel');
-  shell.innerHTML = `<div class="journey-copy"><div class="journey-caption"><h3></h3><p></p></div><a class="journey-all" href="travel.html">View all</a></div><div class="journey-media"><div class="journey-viewport" tabindex="0" aria-label="Travel photos. Use left and right arrow keys to change photo."><div class="journey-track"></div></div><div class="journey-controls"><span class="journey-count"></span><button class="journey-play" type="button">Pause</button></div></div>`;
+  shell.innerHTML = `<div class="journey-copy"><div class="journey-caption"><h3></h3><p></p></div><a class="journey-all" href="/travel/">View all</a></div><div class="journey-media"><div class="journey-viewport" tabindex="0" aria-label="Travel photos. Use left and right arrow keys to change photo."><div class="journey-track"></div></div><div class="journey-controls"><span class="journey-count"></span><button class="journey-play" type="button">Pause</button></div></div>`;
   const track = shell.querySelector('.journey-track');
   const viewport = shell.querySelector('.journey-viewport');
   const title = shell.querySelector('h3');
